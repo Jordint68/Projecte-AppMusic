@@ -16,16 +16,5 @@ import org.milaifontanals.spotifypaco2.models.Album;
 public abstract class AppDatabase extends RoomDatabase {
     public abstract AlbumDao albumDao();
 
-    private static AppDatabase INSTANCE;
 
-    public static synchronized AppDatabase getInstance(Context context) {
-        if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(
-                    context.getApplicationContext(),
-                    AppDatabase.class,
-                    "app_database"
-            ).build();
-        }
-        return INSTANCE;
-    }
 }

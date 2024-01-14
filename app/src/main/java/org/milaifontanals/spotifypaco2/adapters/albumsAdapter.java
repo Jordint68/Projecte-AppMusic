@@ -1,9 +1,6 @@
 package org.milaifontanals.spotifypaco2.adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +13,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.milaifontanals.spotifypaco2.R;
-import org.milaifontanals.spotifypaco2.db.AppDatabase;
-import org.milaifontanals.spotifypaco2.db.DatabaseHelper;
 import org.milaifontanals.spotifypaco2.models.Album;
 import org.milaifontanals.spotifypaco2.view.SongListFragment;
 
@@ -29,15 +24,13 @@ public class albumsAdapter extends RecyclerView.Adapter<albumsAdapter.ViewHolder
     private Context mListener;
     private int idxElementSeleccionat = -1;
     private FragmentManager fm;
-
-    private DatabaseHelper dbHelp;
+    //private DatabaseHelper dbHelp;
 
     public albumsAdapter(List<Album> albums, Context c, FragmentManager fragmentManager) {
         this.mContext = c;
         mListener = c;
         mAlbums = albums;
         this.fm = fragmentManager;
-
 
     }
 

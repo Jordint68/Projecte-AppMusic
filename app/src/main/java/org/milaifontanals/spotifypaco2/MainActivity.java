@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import org.milaifontanals.spotifypaco2.db.AppDatabase;
 import org.milaifontanals.spotifypaco2.view.AlbumListFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -62,6 +64,10 @@ public class MainActivity extends AppCompatActivity
                 Toast.LENGTH_SHORT).show());
 
          */
+
+        Room.databaseBuilder(this, AppDatabase.class, "Sample.db")
+                .createFromAsset("database/myapp.db")
+                .build();
 
             albumListFragment = new AlbumListFragment();
             showFragment(R.string.nav_mymusic);

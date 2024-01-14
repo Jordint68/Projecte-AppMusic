@@ -21,7 +21,7 @@ public class Album implements Parcelable {
      */
     public Album() {}
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     int id;
     //List<Song> songs;
 
@@ -43,6 +43,14 @@ public class Album implements Parcelable {
         author = in.readString();
         any = in.readInt();
         drawable = in.readInt();
+    }
+
+    public Album(int id, String name, String author, int any, int drawable) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.any = any;
+        this.drawable = drawable;
     }
 
     public static final Creator<Album> CREATOR = new Creator<Album>() {

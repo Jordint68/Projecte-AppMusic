@@ -11,21 +11,20 @@ import android.view.ViewGroup;
 
 import org.milaifontanals.spotifypaco2.adapters.albumsAdapter;
 import org.milaifontanals.spotifypaco2.databinding.FragmentAlbumListBinding;
-import org.milaifontanals.spotifypaco2.db.DatabaseHelper;
-import org.milaifontanals.spotifypaco2.db.DatabaseThread;
 import org.milaifontanals.spotifypaco2.models.Album;
-
-import java.util.List;
+import org.milaifontanals.spotifypaco2.viewmodel.AlbumViewModel;
 
 public class AlbumListFragment extends Fragment {
-    private DatabaseHelper dbHelper;
+    private AlbumViewModel albViewModel;
     private FragmentAlbumListBinding mBinding;
+    private albumsAdapter adapter;
     public AlbumListFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dbHelper = new DatabaseHelper(requireContext());
+
+
     }
 
     @Override
@@ -33,24 +32,20 @@ public class AlbumListFragment extends Fragment {
                              Bundle savedInstanceState) {
         mBinding = FragmentAlbumListBinding.inflate(getLayoutInflater());
 
-        albumsAdapter adapter = new albumsAdapter(Album.createListAlbums(), AlbumListFragment.this.getContext(), getParentFragmentManager());
+        // Button add new Album:
+        mBinding.imbAfegir.setOnClickListener(v ->  {
+
+        });
+
+        // Button remove new Album:
+        mBinding.imbTreure.setOnClickListener(v ->  {
+            
+        });
+
+        adapter = new albumsAdapter(Album.createListAlbums(), AlbumListFragment.this.getContext(), getParentFragmentManager());
         mBinding.grvArtistes.setLayoutManager(new GridLayoutManager(AlbumListFragment.this.getContext(), 2, LinearLayoutManager.VERTICAL, false));
         mBinding.grvArtistes.setAdapter(adapter);
 
         return mBinding.getRoot();
-    }
-
-    private void getAlbumsDb() {
-        dbHelper.getAlbumsAsync(new DatabaseThread.OnQueryCompleteListener() {
-            @Override
-            public void onQueryComplete(List<Album> albums) {
-                requireActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-
-                    }
-                });
-            }
-        });
     }
 }
