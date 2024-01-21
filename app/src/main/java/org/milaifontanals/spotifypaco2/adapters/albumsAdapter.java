@@ -24,7 +24,6 @@ public class albumsAdapter extends RecyclerView.Adapter<albumsAdapter.ViewHolder
     private Context mListener;
     private int idxElementSeleccionat = -1;
     private FragmentManager fm;
-    //private DatabaseHelper dbHelp;
 
     public albumsAdapter(List<Album> albums, Context c, FragmentManager fragmentManager) {
         this.mContext = c;
@@ -57,12 +56,13 @@ public class albumsAdapter extends RecyclerView.Adapter<albumsAdapter.ViewHolder
             this.notifyItemChanged(idxElementSeleccionat);
             this.notifyItemChanged(posicioAnterior);
 
-            navegarAFragSongs(albumActual);
+
+            navegarAFragSongs(albumActual.getId());
         });
     }
 
-    private void navegarAFragSongs(Album album) {
-        Fragment frSongs = SongListFragment.newInstance(album);
+    private void navegarAFragSongs(int idAlbum) {
+        Fragment frSongs = SongListFragment.newInstance(idAlbum);
 
         if (fm != null) {
             fm.beginTransaction()

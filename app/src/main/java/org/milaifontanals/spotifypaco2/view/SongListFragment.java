@@ -19,11 +19,11 @@ public class SongListFragment extends Fragment {
     private FragmentSongListBinding mBinding;
     public SongListFragment() {}
 
-    public static SongListFragment newInstance(Album album) {
+    public static SongListFragment newInstance(int idAlbum) {
         SongListFragment frag = new SongListFragment();
 
         Bundle args = new Bundle();
-        args.putParcelable("album", album);
+        args.putInt("idAlbum", idAlbum);
         frag.setArguments(args);
 
         return frag;
@@ -43,7 +43,7 @@ public class SongListFragment extends Fragment {
 
         Bundle args = getArguments();
         if (args != null) {
-            Album album = args.getParcelable("album");
+            int idAlbum = args.getInt("idAlbum");
 
             mBinding.imvFotoAlbum.setImageResource(album.getDrawable());
             mBinding.txvNomAlbum.setText(album.getName());

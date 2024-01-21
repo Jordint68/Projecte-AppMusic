@@ -42,6 +42,6 @@ public class AlbumViewModel extends AndroidViewModel {
             albumDao.insertAll(a);
             insertFet.postValue(true);
             return true;
-        }).subscribeOn(Schedulers.io() ).subscribe();
+        }).subscribeOn(Schedulers.io()).subscribe();
     }
 }
