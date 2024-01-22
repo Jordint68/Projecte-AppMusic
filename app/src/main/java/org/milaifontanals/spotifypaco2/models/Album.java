@@ -131,6 +131,7 @@ public class Album implements Parcelable {
 
     private static List<Album> lAlbums;
 
+    /*
     public static List<Album> createListAlbums() {
         if(lAlbums == null) {
             lAlbums = new ArrayList<>();
@@ -139,7 +140,6 @@ public class Album implements Parcelable {
             Album a3 = new Album("The Resistance", "Muse", 2009, R.drawable.muse_resistance_logo);
             Album a4 = new Album("Nevermind", "Nirvana", 2009, R.drawable.nevermind_nirvana_logo);
 
-            /*
             List<Song> ls = new ArrayList<>();
             a1.songs.add(new Song(1, "Death on Two Legs", "3:43"));
             a1.songs.add(new Song(2, "I'm In Love With My Car", "3:05"));
@@ -160,10 +160,10 @@ public class Album implements Parcelable {
             lAlbums.add(a2);
             lAlbums.add(a3);
             lAlbums.add(a4);
-             */
+
         }
         return lAlbums;
-    }
+    } */
 
 
 

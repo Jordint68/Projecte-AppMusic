@@ -4,12 +4,44 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity
 public class Song implements Parcelable {
+    /*
+    *   Constructor buit:
+     */
+
+    public Song() {}
+    @PrimaryKey
     int id;
+    @ColumnInfo(name = "idAlbum")
+    int idAlbum;
+
+    public int getIdAlbum() {
+        return idAlbum;
+    }
+
+    public void setIdAlbum(int idAlbum) {
+        this.idAlbum = idAlbum;
+    }
+
+    @ColumnInfo(name = "name")
     String name;
+    @ColumnInfo(name = "mg")
     Boolean mg;
+    @ColumnInfo(name = "time")
     String time;
+
+    public Song(int id, int idAlbum, String name, Boolean mg, String time) {
+        this.id = id;
+        this.idAlbum = idAlbum;
+        this.name = name;
+        this.mg = mg;
+        this.time = time;
+    }
 
     protected Song(Parcel in) {
         id = in.readInt();

@@ -22,5 +22,5 @@ public interface AlbumDao {
     void insertAll(Album... albums);
 
     @Delete
-    void delete(Album user);
+    void delete(Album album);
 }
