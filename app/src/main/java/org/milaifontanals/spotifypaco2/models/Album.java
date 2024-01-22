@@ -21,7 +21,7 @@ public class Album implements Parcelable {
      */
     public Album() {}
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     int id;
     //List<Song> songs;
 

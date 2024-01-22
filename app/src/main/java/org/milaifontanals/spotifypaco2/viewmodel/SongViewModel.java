@@ -42,15 +42,16 @@ public class SongViewModel extends AndroidViewModel {
         return songDao.getAll();
     }
 
-    public void insertAlbum(int id, int idAlbum, String name, boolean mg, String time) {
+    public void insertSong(int idAlbum, String name, boolean mg, String time) {
 
         Observable.fromCallable(() -> {
             Log.d("XXX", "Inserim ????");
             SongDao songDao = db.songDao();
-            Song s = new Song(id, idAlbum, name, mg, time);
+            Song s = new Song(idAlbum, name, mg, time);
             songDao.insertAll(s);
             insertFet.postValue(true);
             return true;
         }).subscribeOn(Schedulers.io()).subscribe();
     }
+
 }

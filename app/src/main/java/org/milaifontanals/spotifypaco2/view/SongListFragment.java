@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -25,6 +26,8 @@ import org.milaifontanals.spotifypaco2.viewmodel.SongViewModel;
 import java.util.List;
 
 public class SongListFragment extends Fragment {
+    private FragmentManager fm;
+    private int idAlbum;
     private SongViewModel sViewModel;
     private FragmentSongListBinding mBinding;
     private songsAdapter sAdapter;
@@ -45,6 +48,7 @@ public class SongListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sViewModel = new ViewModelProvider(this).get(SongViewModel.class);
+        this.fm = getFragmentManager();
     }
 
     @Override
@@ -55,7 +59,7 @@ public class SongListFragment extends Fragment {
 
         Bundle args = getArguments();
         if (args != null) {
-            int idAlbum = args.getInt("idAlbum");
+            idAlbum = args.getInt("idAlbum");
 
             /*      Assinar els elements del album
             mBinding.imvFotoAlbum.setImageResource(album.getDrawable());
@@ -74,6 +78,10 @@ public class SongListFragment extends Fragment {
             }
         });
 
+        mBinding.imbAfegir.setOnClickListener(v -> {
+            navegarACreacioSong();
+        });
+
 
 
         return mBinding.getRoot();
@@ -87,6 +95,17 @@ public class SongListFragment extends Fragment {
             mBinding.rcvSongs.setLayoutManager(new LinearLayoutManager(SongListFragment.this.getContext(), LinearLayoutManager.VERTICAL, false));
             mBinding.rcvSongs.setAdapter(sAdapter);
         });
+    }
+
+    private void navegarACreacioSong() {
+        Fragment fr = CreacioSongFragments.newInstance(idAlbum);
+
+        if (fm != null) {
+            fm.beginTransaction()
+                    .replace(R.id.fragment_container, fr)
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 
 

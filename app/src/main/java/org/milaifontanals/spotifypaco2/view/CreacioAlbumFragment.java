@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 
 import org.milaifontanals.spotifypaco2.R;
 import org.milaifontanals.spotifypaco2.databinding.FragmentCreacioAlbumBinding;
-import org.milaifontanals.spotifypaco2.models.Album;
 import org.milaifontanals.spotifypaco2.viewmodel.AlbumViewModel;
 
 public class CreacioAlbumFragment extends Fragment {
@@ -43,8 +42,14 @@ public class CreacioAlbumFragment extends Fragment {
         // Save and insert into database
         viewModel = new ViewModelProvider(this).get(AlbumViewModel.class);
         mBinding.btnSave.setOnClickListener(view -> {
-            viewModel.insertAlbum(1, mBinding.edtName.getText().toString(), mBinding.edtAutor.getText().toString(), mBinding.numpAny.getValue(), R.drawable.loading);
-            tancarFragment();
+            String name = mBinding.edtName.getText().toString();
+            String author = mBinding.edtAutor.getText().toString();
+            if(comprovarValors(name, author)) {
+                viewModel.insertAlbum(1, mBinding.edtName.getText().toString(), mBinding.edtAutor.getText().toString(), mBinding.numpAny.getValue(), R.drawable.loading);
+                tancarFragment();
+            }
+            mBinding.txvError.setVisibility(View.VISIBLE);
+
         });
 
         // Cancel and return to albums page
@@ -52,10 +57,17 @@ public class CreacioAlbumFragment extends Fragment {
             tancarFragment();
         });
 
-
-
-
         return mBinding.getRoot();
+    }
+
+    // Funció que comprova si s'han introduit els camps:
+    private boolean comprovarValors(String name, String author) {
+        if(!name.isEmpty()) {
+            if(!author.isEmpty()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void tancarFragment() {

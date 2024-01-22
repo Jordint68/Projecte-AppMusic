@@ -57,10 +57,6 @@ public class AlbumListFragment extends Fragment {
             
         });
 
-        //adapter = new albumsAdapter(Album.createListAlbums(), AlbumListFragment.this.getContext(), getParentFragmentManager());
-        //mBinding.grvArtistes.setLayoutManager(new GridLayoutManager(AlbumListFragment.this.getContext(), 2, LinearLayoutManager.VERTICAL, false));
-        //mBinding.grvArtistes.setAdapter(adapter);
-
         return mBinding.getRoot();
     }
     private void navegarACreacioAlbum() {

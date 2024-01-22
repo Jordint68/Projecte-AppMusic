@@ -15,7 +15,7 @@ public class Song implements Parcelable {
      */
 
     public Song() {}
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     int id;
     @ColumnInfo(name = "idAlbum")
     int idAlbum;
@@ -37,6 +37,13 @@ public class Song implements Parcelable {
 
     public Song(int id, int idAlbum, String name, Boolean mg, String time) {
         this.id = id;
+        this.idAlbum = idAlbum;
+        this.name = name;
+        this.mg = mg;
+        this.time = time;
+    }
+
+    public Song(int idAlbum, String name, Boolean mg, String time) {
         this.idAlbum = idAlbum;
         this.name = name;
         this.mg = mg;
