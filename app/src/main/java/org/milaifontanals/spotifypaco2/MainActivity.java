@@ -18,6 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.milaifontanals.spotifypaco2.db.AppDatabase;
 import org.milaifontanals.spotifypaco2.view.AlbumListFragment;
+import org.milaifontanals.spotifypaco2.view.MySearchFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity
      */
 
     private AlbumListFragment albumListFragment;
+    private MySearchFragment mySearchFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,15 +58,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // HEADER:
-
-
-        /*
-        Room.databaseBuilder(this, AppDatabase.class, "Sample.db")
-                .createFromAsset("database/myapp.db")
-                .build();
-        */
-
-
+            mySearchFragment = new MySearchFragment();
             albumListFragment = new AlbumListFragment();
             showFragment(R.string.nav_mymusic);
     }
@@ -92,6 +86,9 @@ public class MainActivity extends AppCompatActivity
             case R.string.nav_mymusic:
                 fragToShow = albumListFragment;
                 break;
+            case R.string.nav_mysearch:
+                fragToShow = mySearchFragment;
+                break;
             // Més casos si cal...
 
             default:
@@ -109,6 +106,8 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.nav_mymusic:
                 return R.string.nav_mymusic;
+            case R.id.nav_mysearch:
+                return R.string.nav_mysearch;
             default:
                 throw new IllegalArgumentException("Opció del menú no implementada...");
         }

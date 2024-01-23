@@ -4,6 +4,7 @@
     <string name="navigation_drawer_close">Drawer tancat</string>
     <string name="title_click">Click al header</string>
     <string name="nav_mymusic">Click al MyMusic</string>
+    <string name="nav_mysearch">Click al MySearch</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
