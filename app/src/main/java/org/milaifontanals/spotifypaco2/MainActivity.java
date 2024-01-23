@@ -56,18 +56,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // HEADER:
+
+
         /*
-        View header = navigationView.getHeaderView(0);
-        header.findViewById(R.id.nav_header_container).setOnClickListener(view -> Toast.makeText(
-                MainActivity.this,
-                "",
-                Toast.LENGTH_SHORT).show());
-
-         */
-
         Room.databaseBuilder(this, AppDatabase.class, "Sample.db")
                 .createFromAsset("database/myapp.db")
                 .build();
+        */
+
 
             albumListFragment = new AlbumListFragment();
             showFragment(R.string.nav_mymusic);
