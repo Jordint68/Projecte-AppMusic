@@ -4,16 +4,30 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import org.milaifontanals.spotifypaco2.API.APILastFMManager;
 import org.milaifontanals.spotifypaco2.R;
+import org.milaifontanals.spotifypaco2.adapters.mySearchAlbumAdapter;
 import org.milaifontanals.spotifypaco2.databinding.FragmentMySearchBinding;
+import org.milaifontanals.spotifypaco2.models.AlbumJson;
+import org.milaifontanals.spotifypaco2.models.SearchAlbum;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MySearchFragment extends Fragment {
+    public static final String TAG = "MYMUSIC_TAG";
     private FragmentMySearchBinding mBinding;
+    private mySearchAlbumAdapter msAlbumAdapter;
+
 
     public MySearchFragment() {}
 
@@ -42,7 +56,33 @@ public class MySearchFragment extends Fragment {
         spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mBinding.spnTipus.setAdapter(spnAdapter);
 
+        // Button:
+
+        mBinding.btnCerca.setOnClickListener(view -> {
+            // Acció de quan el botó de cerca es presionat:
+            String param = mBinding.edtBusqueda.getText().toString();
+            if(!param.equals("")) {
+                cercaAlbums(param);
+            }
+        });
+
 
         return mBinding.getRoot();
+    }
+
+    private void cercaAlbums(String parametre) {
+        APILastFMManager.getInstance().getAlbums(parametre, new Callback<SearchAlbum>() {
+            @Override
+            public void onResponse(Call<SearchAlbum> call, Response<SearchAlbum> response) {
+                List<AlbumJson> albums = response.body().getData();
+
+                Log.d(TAG, albums.get(0).getName());
+            }
+
+            @Override
+            public void onFailure(Call<SearchAlbum> call, Throwable t) {
+
+            }
+        });
     }
 }
