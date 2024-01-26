@@ -1,15 +1,14 @@
-
 package org.milaifontanals.spotifypaco2.models;
-
-import java.util.List;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 import javax.annotation.processing.Generated;
 
 @Generated("jsonschema2pojo")
-public class AlbumJson {
+public class AlbumJSON {
 
     @SerializedName("name")
     @Expose
@@ -19,7 +18,7 @@ public class AlbumJson {
     private String artist;
     @SerializedName("image")
     @Expose
-    private List<ImageJson> image;
+    private List<Image> image;
 
     public String getName() {
         return name;
@@ -37,20 +36,13 @@ public class AlbumJson {
         this.artist = artist;
     }
 
-    public List<ImageJson> getImage() {
+    public List<Image> getImage() {
         return image;
     }
 
-    public void setImage(List<ImageJson> image) {
+    public void setImage(List<Image> image) {
         this.image = image;
     }
 
-    public AlbumJson() {
-    }
-
-    public AlbumJson(String name, String artist, List<ImageJson> image) {
-        this.name = name;
-        this.artist = artist;
-        this.image = image;
-    }
 }
+

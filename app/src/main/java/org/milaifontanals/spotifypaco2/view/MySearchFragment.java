@@ -10,12 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import org.milaifontanals.spotifypaco2.API.APILastFMManager;
-import org.milaifontanals.spotifypaco2.R;
 import org.milaifontanals.spotifypaco2.adapters.mySearchAlbumAdapter;
 import org.milaifontanals.spotifypaco2.databinding.FragmentMySearchBinding;
-import org.milaifontanals.spotifypaco2.models.AlbumJson;
-import org.milaifontanals.spotifypaco2.models.SearchAlbum;
 
 import java.util.List;
 
@@ -62,7 +58,7 @@ public class MySearchFragment extends Fragment {
             // Acció de quan el botó de cerca es presionat:
             String param = mBinding.edtBusqueda.getText().toString();
             if(!param.equals("")) {
-                cercaAlbums(param);
+                //cercaAlbums(param);
             }
         });
 
@@ -70,19 +66,5 @@ public class MySearchFragment extends Fragment {
         return mBinding.getRoot();
     }
 
-    private void cercaAlbums(String parametre) {
-        APILastFMManager.getInstance().getAlbums(parametre, new Callback<SearchAlbum>() {
-            @Override
-            public void onResponse(Call<SearchAlbum> call, Response<SearchAlbum> response) {
-                List<AlbumJson> albums = response.body().getData();
 
-                Log.d(TAG, albums.get(0).getName());
-            }
-
-            @Override
-            public void onFailure(Call<SearchAlbum> call, Throwable t) {
-
-            }
-        });
-    }
 }
