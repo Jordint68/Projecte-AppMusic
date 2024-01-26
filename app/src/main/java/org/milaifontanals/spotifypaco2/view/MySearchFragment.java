@@ -3,6 +3,7 @@ package org.milaifontanals.spotifypaco2.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,8 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import org.milaifontanals.spotifypaco2.API.APIManager;
 import org.milaifontanals.spotifypaco2.adapters.mySearchAlbumAdapter;
 import org.milaifontanals.spotifypaco2.databinding.FragmentMySearchBinding;
+import org.milaifontanals.spotifypaco2.models.AlbumJSON;
+import org.milaifontanals.spotifypaco2.models.Resultats;
+import org.milaifontanals.spotifypaco2.models.Results;
 
 import java.util.List;
 
@@ -58,12 +63,40 @@ public class MySearchFragment extends Fragment {
             // Acció de quan el botó de cerca es presionat:
             String param = mBinding.edtBusqueda.getText().toString();
             if(!param.equals("")) {
-                //cercaAlbums(param);
+                cercaAlbums(param);
             }
         });
 
 
         return mBinding.getRoot();
+    }
+
+    private void cercaAlbums(String param) {
+        APIManager.getInstance().getAlbums(param, new Callback<Resultats>() {
+            @Override
+            public void onResponse(Call<Resultats> call, Response<Resultats> response) {
+                Results res = response.body().getResults();
+
+                omplirRecyclerAlbums(res.getAlbummatches().getAlbum());
+            }
+
+            @Override
+            public void onFailure(Call<Resultats> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void omplirRecyclerAlbums(List<AlbumJSON> albums) {
+        mBinding.rcyResultats.setLayoutManager(
+                new LinearLayoutManager(
+                        mBinding.btnCerca.getContext(),
+                        LinearLayoutManager.VERTICAL,
+                        false
+                )
+        );
+        msAlbumAdapter = new mySearchAlbumAdapter(albums, mBinding.btnCerca.getContext());
+        mBinding.rcyResultats.setAdapter(msAlbumAdapter);
     }
 
 

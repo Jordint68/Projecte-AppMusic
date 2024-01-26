@@ -12,13 +12,13 @@ public class Albummatches {
 
     @SerializedName("album")
     @Expose
-    private List<Album> album;
+    private List<AlbumJSON> album;
 
-    public List<Album> getAlbum() {
+    public List<AlbumJSON> getAlbum() {
         return album;
     }
 
-    public void setAlbum(List<Album> album) {
+    public void setAlbum(List<AlbumJSON> album) {
         this.album = album;
     }
 

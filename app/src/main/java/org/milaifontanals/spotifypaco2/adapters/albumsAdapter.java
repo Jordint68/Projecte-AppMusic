@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import org.milaifontanals.spotifypaco2.R;
 import org.milaifontanals.spotifypaco2.models.Album;
 import org.milaifontanals.spotifypaco2.view.SongListFragment;
@@ -24,6 +26,9 @@ public class albumsAdapter extends RecyclerView.Adapter<albumsAdapter.ViewHolder
     private Context mListener;
     private int idxElementSeleccionat = -1;
     private FragmentManager fm;
+
+
+
 
     public albumsAdapter(List<Album> albums, Context c, FragmentManager fragmentManager) {
         this.mContext = c;
@@ -45,17 +50,17 @@ public class albumsAdapter extends RecyclerView.Adapter<albumsAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull albumsAdapter.ViewHolder holder, int position) {
         Album albumActual = mAlbums.get(position);
-        holder.imvFoto.setImageResource(albumActual.getDrawable());
         holder.txvNom.setText(albumActual.getAuthor());
         holder.txvTitle.setText(albumActual.getName());
         holder.txvAny.setText(String.valueOf(albumActual.getAny()));
+        String imgUrl = albumActual.getDrawable().toString();
+        ImageLoader.getInstance().displayImage(imgUrl, holder.imvFoto);
 
         holder.itemView.setOnClickListener(view -> {
             int posicioAnterior = this.idxElementSeleccionat;
             this.idxElementSeleccionat= holder.getAdapterPosition();
             this.notifyItemChanged(idxElementSeleccionat);
             this.notifyItemChanged(posicioAnterior);
-
 
             navegarAFragSongs(albumActual.getId());
         });
@@ -88,7 +93,6 @@ public class albumsAdapter extends RecyclerView.Adapter<albumsAdapter.ViewHolder
             txvNom = artist.findViewById(R.id.txvNom);
             txvTitle = artist.findViewById(R.id.txvTitle);
             txvAny = artist.findViewById(R.id.txvAny);
-
         }
     }
 }

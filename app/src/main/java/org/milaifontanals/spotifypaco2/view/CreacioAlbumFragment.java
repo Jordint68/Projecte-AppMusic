@@ -45,7 +45,7 @@ public class CreacioAlbumFragment extends Fragment {
             String name = mBinding.edtName.getText().toString();
             String author = mBinding.edtAutor.getText().toString();
             if(comprovarValors(name, author)) {
-                viewModel.insertAlbum(1, mBinding.edtName.getText().toString(), mBinding.edtAutor.getText().toString(), mBinding.numpAny.getValue(), R.drawable.loading);
+                viewModel.insertAlbum(1, mBinding.edtName.getText().toString(), mBinding.edtAutor.getText().toString(), mBinding.numpAny.getValue(), "");
                 tancarFragment();
             }
             mBinding.txvError.setVisibility(View.VISIBLE);

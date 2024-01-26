@@ -32,7 +32,7 @@ public class AlbumViewModel extends AndroidViewModel {
         return albumDao.getAll();
     }
 
-    public void insertAlbum(int id, String name, String author, int any, int drawable) {
+    public void insertAlbum(int id, String name, String author, int any, String drawable) {
 
         Observable.fromCallable(() -> {
             Log.d("XXX", "Inserim ????");

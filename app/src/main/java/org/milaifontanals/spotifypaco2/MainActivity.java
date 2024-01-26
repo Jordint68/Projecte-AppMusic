@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import org.milaifontanals.spotifypaco2.db.AppDatabase;
 import org.milaifontanals.spotifypaco2.view.AlbumListFragment;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(findViewById(R.id.toolbar));
 
-        
+
         // DRAWER LAYOUT:
         drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -57,6 +59,10 @@ public class MainActivity extends AppCompatActivity
         // NAVIGATION VIEW:
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // UNIVERSAL IMAGE LOADER:
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
+        ImageLoader.getInstance().init(config);
 
         // HEADER:
             mySearchFragment = new MySearchFragment();

@@ -23,7 +23,6 @@ public class Album implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     int id;
-    //List<Song> songs;
 
     @ColumnInfo(name = "name")
     String name;
@@ -35,17 +34,17 @@ public class Album implements Parcelable {
     int any;
 
     @ColumnInfo(name = "drawable")
-    int drawable;
+    String drawable;
 
     protected Album(Parcel in) {
         id = in.readInt();
         name = in.readString();
         author = in.readString();
         any = in.readInt();
-        drawable = in.readInt();
+        drawable = in.readString();
     }
 
-    public Album(int id, String name, String author, int any, int drawable) {
+    public Album(int id, String name, String author, int any, String drawable) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -79,14 +78,6 @@ public class Album implements Parcelable {
         return null;
     }
 
-
-
-    /*
-    public void setSongs(List<Song> songs) {
-        this.songs = songs;
-    }
-    */
-
     public String getName() {
         return name;
     }
@@ -103,11 +94,11 @@ public class Album implements Parcelable {
         this.any = any;
     }
 
-    public int getDrawable() {
+    public String getDrawable() {
         return drawable;
     }
 
-    public void setDrawable(int drawable) {
+    public void setDrawable(String drawable) {
         this.drawable = drawable;
     }
 
@@ -120,51 +111,13 @@ public class Album implements Parcelable {
     }
 
 
-    public Album(String name, String autor, int any, int drawable) {
+    public Album(String name, String autor, int any, String drawable) {
         this.name = name;
         this.author = autor;
         this.any = any;
         this.drawable = drawable;
         //songs = new ArrayList<>();
     }
-
-
-    private static List<Album> lAlbums;
-
-    /*
-    public static List<Album> createListAlbums() {
-        if(lAlbums == null) {
-            lAlbums = new ArrayList<>();
-            Album a1 = new Album("A Night At The Opera","Queen", 1999, R.drawable.queen_logo);
-            Album a2 = new Album("Californication","Red Hot Chili Peppers", 1999, R.drawable.rhcp_californication_logo);
-            Album a3 = new Album("The Resistance", "Muse", 2009, R.drawable.muse_resistance_logo);
-            Album a4 = new Album("Nevermind", "Nirvana", 2009, R.drawable.nevermind_nirvana_logo);
-
-            List<Song> ls = new ArrayList<>();
-            a1.songs.add(new Song(1, "Death on Two Legs", "3:43"));
-            a1.songs.add(new Song(2, "I'm In Love With My Car", "3:05"));
-
-            ls.clear();
-            a2.songs.add(new Song(1, "Californication", "5:22"));
-            a2.songs.add(new Song(2, "Otherside", "4:16"));
-
-            ls.clear();
-            a3.songs.add(new Song(1, "Uprising", "5:05"));
-            a3.songs.add(new Song(2, "Resistance", "5:47"));
-
-            ls.clear();
-            a4.songs.add(new Song(1,"Smells Like Teen Spirit", "5:01"));
-            a4.songs.add(new Song(2, "Come as You Are", "3:39"));
-
-            lAlbums.add(a1);
-            lAlbums.add(a2);
-            lAlbums.add(a3);
-            lAlbums.add(a4);
-
-        }
-        return lAlbums;
-    } */
-
 
 
     @Override
@@ -178,6 +131,6 @@ public class Album implements Parcelable {
         dest.writeString(name);
         dest.writeString(author);
         dest.writeInt(any);
-        dest.writeInt(drawable);
+        dest.writeString(drawable);
     }
 }
