@@ -1,6 +1,7 @@
 package org.milaifontanals.spotifypaco2.API;
 
 import org.milaifontanals.spotifypaco2.models.searchAlbum.Resultats;
+import org.milaifontanals.spotifypaco2.models.searchArtist.ResultatsArtist;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,8 +34,15 @@ public class APIManager {
         return mInstance;
     }
 
+    // Mètode per a retornar una llista de albums cercats mitjaçant el nom passat per paràmetre:
     public void getAlbums(String titol, Callback<Resultats> cb) {
         Call<Resultats> call = mApiService.searchAlbum("album.search", titol, TOKEN, FORMAT);
+        call.enqueue(cb);
+    }
+
+    // Mètode per a retornar una llista de artistes cercats mitjançant el nom passat per paràmetre:
+    public void getArtists(String artist, Callback<ResultatsArtist> cb) {
+        Call<ResultatsArtist> call = mApiService.searchArtist("artist.search", artist, TOKEN, FORMAT);
         call.enqueue(cb);
     }
 
