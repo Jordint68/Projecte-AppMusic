@@ -1,9 +1,6 @@
 package org.milaifontanals.spotifypaco2.adapters;
 
-import static org.milaifontanals.spotifypaco2.view.MySearchFragment.TAG;
-
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.milaifontanals.spotifypaco2.R;
-import org.milaifontanals.spotifypaco2.models.Album;
-import org.milaifontanals.spotifypaco2.models.AlbumJSON;
+import org.milaifontanals.spotifypaco2.models.searchAlbum.AlbumJSON;
 
 import java.util.List;
 

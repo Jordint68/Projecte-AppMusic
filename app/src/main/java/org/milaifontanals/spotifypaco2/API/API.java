@@ -1,6 +1,6 @@
 package org.milaifontanals.spotifypaco2.API;
 
-import org.milaifontanals.spotifypaco2.models.Resultats;
+import org.milaifontanals.spotifypaco2.models.searchAlbum.Resultats;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

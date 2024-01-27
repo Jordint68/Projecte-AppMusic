@@ -1,5 +1,5 @@
 
-package org.milaifontanals.spotifypaco2.models;
+package org.milaifontanals.spotifypaco2.models.searchAlbum;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

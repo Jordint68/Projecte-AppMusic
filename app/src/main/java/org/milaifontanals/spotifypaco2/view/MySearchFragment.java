@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +13,9 @@ import android.widget.ArrayAdapter;
 import org.milaifontanals.spotifypaco2.API.APIManager;
 import org.milaifontanals.spotifypaco2.adapters.mySearchAlbumAdapter;
 import org.milaifontanals.spotifypaco2.databinding.FragmentMySearchBinding;
-import org.milaifontanals.spotifypaco2.models.AlbumJSON;
-import org.milaifontanals.spotifypaco2.models.Resultats;
-import org.milaifontanals.spotifypaco2.models.Results;
+import org.milaifontanals.spotifypaco2.models.searchAlbum.AlbumJSON;
+import org.milaifontanals.spotifypaco2.models.searchAlbum.Resultats;
+import org.milaifontanals.spotifypaco2.models.searchAlbum.Results;
 
 import java.util.List;
 

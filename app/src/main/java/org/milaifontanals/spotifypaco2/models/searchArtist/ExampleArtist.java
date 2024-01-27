@@ -1,13 +1,12 @@
 
-package org.milaifontanals.spotifypaco2.models;
+package org.milaifontanals.spotifypaco2.models.searchArtist;
 
+import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import javax.annotation.processing.Generated;
-
 @Generated("jsonschema2pojo")
-public class Resultats {
+public class ExampleArtist {
 
     @SerializedName("results")
     @Expose
