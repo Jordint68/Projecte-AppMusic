@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="10dp"
     android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp">
+    android:layout_marginRight="10dp"
+    android:background="@color/beigeSuperLight">
 
     <ImageView
         android:id="@+id/imvFoto"
@@ -13,7 +14,8 @@
         android:layout_height="80dp"
         android:src="@drawable/loading"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/beigeSuperLight"/>
 
     <TextView
         android:id="@+id/txvNom"

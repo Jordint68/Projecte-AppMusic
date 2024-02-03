@@ -15,8 +15,8 @@ public interface AlbumDao {
     @Query("SELECT * FROM album")
     LiveData<List<Album>> getAll();
 
-    @Query("SELECT * FROM album WHERE id IN (:albumIds)")
-    List<Album> loadAllByIds(int[] albumIds);
+    @Query("SELECT * FROM album WHERE id IN (:albumId)")
+    LiveData<Album> loadAllById(int albumId);
 
     @Insert
     void insertAll(Album... albums);

@@ -6,5 +6,9 @@
     <color name="primaryDark">#DC014A</color>
     <color name="beige">#EEB9A7</color>
     <color name="beigeLight">#f3cec1</color>
+    <color name="beigeSuperLight">#d6d1bc</color>
+    <color name="brownLight">#a49078</color>
+    <color name="bamboo">#8dab93</color>
+    <color name="green">#51766a</color>
     <color name="salmon">#FA8072</color>
 </resources>

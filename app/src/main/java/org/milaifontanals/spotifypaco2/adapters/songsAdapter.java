@@ -42,6 +42,21 @@ public class songsAdapter  extends RecyclerView.Adapter<songsAdapter.ViewHolder>
         holder.txvId.setText(songActual.getId()+"");
         holder.txvTitle.setText(songActual.getName());
         holder.txvTime.setText(songActual.getTime());
+        if(songActual.getMg()) {
+            holder.imbMg.setImageResource(R.drawable.full_heart);
+        } else {
+            holder.imbMg.setImageResource(R.drawable.empty_heart);
+        }
+
+        holder.imbMg.setOnClickListener(view -> {
+            if(songActual.getMg()) {
+                songActual.setMg(false);
+                holder.imbMg.setImageResource(R.drawable.empty_heart);
+            } else {
+                songActual.setMg(true);
+                holder.imbMg.setImageResource(R.drawable.full_heart);
+            }
+        });
     }
 
     @Override

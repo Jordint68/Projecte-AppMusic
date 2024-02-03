@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="330dp"
     android:orientation="vertical"
-    android:layout_margin="3dp">
+    android:layout_margin="3dp"
+    android:id="@+id/view_total"
+    android:background="@color/beigeSuperLight"
+    android:padding="3dp">
 
     <ImageView
         android:id="@+id/imvFoto"
@@ -29,8 +32,10 @@
             android:layout_height="60dp"
             android:text="Queen"
             android:textAlignment="center"
-            android:textSize="25dp"
-            android:textStyle="bold">
+            android:textSize="21dp"
+            android:textStyle="bold"
+            android:paddingTop="3dp"
+            android:paddingHorizontal="0dp">
         </TextView>
 
         <TextView
@@ -39,7 +44,8 @@
             android:layout_height="40dp"
             android:text="A Night At The Opera"
             android:textAlignment="center"
-            android:textStyle="italic">
+            android:textStyle="italic"
+            android:padding="1dp">
         </TextView>
 
         <TextView
@@ -51,6 +57,19 @@
             android:textStyle="italic"
             android:layout_marginRight="25dp">
         </TextView>
+
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/imbRemove"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icon_trash"
+        android:background="@color/beigeSuperLight"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="15dp"
+        android:visibility="invisible">
+
+    </ImageButton>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,7 +45,7 @@ public class CreacioAlbumFragment extends Fragment {
             String name = mBinding.edtName.getText().toString();
             String author = mBinding.edtAutor.getText().toString();
             if(comprovarValors(name, author)) {
-                viewModel.insertAlbum(1, mBinding.edtName.getText().toString(), mBinding.edtAutor.getText().toString(), mBinding.numpAny.getValue(), "");
+                viewModel.insertAlbum(mBinding.edtName.getText().toString(), mBinding.edtAutor.getText().toString(), mBinding.numpAny.getValue(), "https://static.vecteezy.com/system/resources/previews/010/174/290/non_2x/no-photo-crossed-out-sign-line-icon-illustration-vector.jpg");
                 tancarFragment();
             }
             mBinding.txvError.setVisibility(View.VISIBLE);

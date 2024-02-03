@@ -5,14 +5,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.SongListFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/beigeSuperLight">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/beige"
+        android:background="@color/green"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
@@ -20,7 +21,7 @@
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:background="@color/beige"
+            android:background="@color/green"
             android:src="@drawable/icon_back" />
 
         <TextView
@@ -36,11 +37,11 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/beigeLight"
+        android:background="@color/bamboo"
         app:layout_constraintTop_toBottomOf="@id/linearLayout2">
 
         <ImageView
-            android:backgroundTint="@color/beigeLight"
+            android:backgroundTint="@color/bamboo"
             android:layout_margin="5dp"
             android:id="@+id/imvFotoAlbum"
             android:layout_width="50dp"
@@ -63,7 +64,7 @@
                 android:id="@+id/txvNomAlbum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nom del album"
+                android:text="Nom del albumJSONSongs"
                 android:textSize="20dp"/>
         </LinearLayout>
 
@@ -85,7 +86,9 @@
         android:layout_height="wrap_content"
         android:src="@drawable/icon_remove"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/bamboo"
+        android:layout_margin="5dp"/>
 
     <ImageButton
         android:id="@+id/imbAfegir"
@@ -93,6 +96,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/icon_afegir"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/bamboo"
+        android:layout_margin="5dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

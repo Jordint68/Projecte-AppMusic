@@ -52,10 +52,6 @@ public class AlbumListFragment extends Fragment {
             navegarACreacioAlbum();
         });
 
-        // Button remove new Album:
-        mBinding.imbTreure.setOnClickListener(v ->  {
-            
-        });
 
         return mBinding.getRoot();
     }
@@ -79,5 +75,7 @@ public class AlbumListFragment extends Fragment {
             mBinding.grvArtistes.setLayoutManager(new GridLayoutManager(AlbumListFragment.this.getContext(), 2, LinearLayoutManager.VERTICAL, false));
             mBinding.grvArtistes.setAdapter(adapter);
         });
+
+
     }
 }
