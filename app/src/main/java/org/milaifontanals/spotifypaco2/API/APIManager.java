@@ -49,8 +49,7 @@ public class APIManager {
 
     // Mètode per a retorna una llista de cançons cercada mitjançant el nom del album i el del artiste per paràmetre:
     public void getTracks(String album, String artist, Callback<Example> cb) {
-        Call<Example> call = mApiService.searchTracks("album.getinfo", TOKEN,
-                artist, album, FORMAT);
+        Call<Example> call = mApiService.searchTracks("album.getinfo", TOKEN, artist, album, FORMAT);
         call.enqueue(cb);
     }
 
